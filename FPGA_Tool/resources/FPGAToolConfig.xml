@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DEFAULT XML LOAD OUT FOR FPGA TOOL *EDIT FOR PROJECT* -->
+<FPGATool>
+	<ToolConfig>
+		<OutputAreaWidth>500</OutputAreaWidth>
+		<OutputAreaHeight>500</OutputAreaHeight>
+	</ToolConfig>
+	<FPGAConfig>
+		<IPAddress>172.17.55.20</IPAddress>
+		<FPGAPort>60074</FPGAPort>
+		<MyPort>9099</MyPort>
+		<NumFlashSlots>8</NumFlashSlots>
+	</FPGAConfig>
+	<PacketReaderOffsets>
+		<FullOutputRange>
+			<Start>0</Start>
+			<End>200</End>
+		</FullOutputRange>
+		<SignificantOffsets>
+			<PacketHeader>0</PacketHeader>
+			<PacketSequenceNum>56</PacketSequenceNum>
+			<Mezananine2BiteFlags>80</Mezananine2BiteFlags>
+			<BiteMode>136</BiteMode>
+			<ChanABiteRes>160</ChanABiteRes>
+			<ChanBBiteRes>164</ChanBBiteRes>
+			<ChanCBiteRes>168</ChanCBiteRes>
+			<ChanDBiteRes>172</ChanDBiteRes>
+			<Spare1>156</Spare1>
+			<Spare2>160</Spare2>
+			<Spare3>164</Spare3>
+			<Spare4>168</Spare4>
+			<Spare5>172</Spare5>
+		</SignificantOffsets>
+		<Voltages>
+			<Input5v>96</Input5v>
+			<Input3v3>100</Input3v3>
+			<Input1v5>104</Input1v5>
+			<Input1v2>108</Input1v2>
+			<Input1v8GTX>112</Input1v8GTX>
+			<Input1v0GTX>116</Input1v0GTX>
+			<Input1v2GTX>120</Input1v2GTX>
+			<Input1_0vCORE>124</Input1_0vCORE>
+		</Voltages>
+		<Temperatures>
+			<THER>176</THER>
+			<CoreT0>184</CoreT0>
+			<LTMT1>188</LTMT1>
+			<PECT2>192</PECT2>
+			<TMAX>196</TMAX>
+			<TMIN>200</TMIN>
+		</Temperatures>
+	</PacketReaderOffsets>
+	<MCACommands>
+		<Header>
+			<line>0xCCCC</line>
+			<line>0x12345678</line> <!-- Default Transaction ID some network methods may use custom incrementing TID -->
+			<line>SCAP</line>
+		</Header>
+		<StartCommands>
+			<Command id="NONE">
+				<line>NONE</line>
+				<line>0x00000000</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id="CLOCK ON">
+				<line>0x40141002</line>
+				<line>0x002C4000</line>
+				<line>0x10100000</line>
+				<line>0x4014022D</line>
+				<line>0x434D5306</line>
+				<line>0x11000000</line>
+				<line>0x8104100A</line>
+				<line>0x40141002</line>
+				<line>0x007DA000</line>
+				<line>0x80140204</line>
+				<line>0x10100000</line>
+				<line>0x80140208</line>
+				<line>0x10100000</line>
+				<line>0x8014020C</line>
+				<line>0x10100000</line>
+				<line>0x80140210</line>
+				<line>0x10100000</line>
+				<line>0x80140214</line>
+				<line>0x10100000</line>
+				<line>0x80140218</line>
+				<line>0x1A000000</line>
+				<line>0x9024100A</line>
+				<line>0x50269097</line>
+				<line>0x19000000</line>
+				<line>0x9044100A</line>
+				<line>0x50469099</line>
+				<line>0x90169099</line>
+				<line>0x501D8403</line>
+				<line>0x9016909A</line>
+				<line>0x501D8503</line>
+				<line>0x9016909B</line>
+				<line>0x501D8603</line>
+				<line>0x9016909C</line>
+				<line>0x501D8703</line>
+				<line>0x10200000</line>
+				<line>0x901D8403</line>
+				<line>0x50178031</line>
+				<line>0x901D8503</line>
+				<line>0x50178032</line>
+				<line>0x901D8603</line>
+				<line>0x50178033</line>
+				<line>0x901D8703</line>
+				<line>0x50178034</line>
+				<line>0x20068022</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id="DATA ON">
+				<line>DAON</line>
+				<line>0x20068020</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id="LOOPBACK">
+				<line>BIT3</line>
+				<line>0x20068031</line>
+				<line>0x00000000</line>
+			</Command>
+		</StartCommands>
+		<StopCommands>
+			<Command id="NONE">
+				<line>NONE</line>
+				<line>0x00000000</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id="CLOCK OFF">
+				<line>CLOF</line>
+				<line>0x20068023</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id="DATA OFF">
+				<line>DAOF</line>
+				<line>0x20068021</line>
+				<line>0x00000000</line>
+			</Command>
+		</StopCommands>
+	</MCACommands>
+	<ProgramFPGACommands>
+		<Header>
+			<line>0xCCCC</line>
+			<line>0x12345678</line>
+			<line>SCAP</line>
+		</Header>
+		<Commands>
+			<Command id = "runBuild">
+				<line>BOOT</line>
+				<line>0x41008023</line>
+				<line>0xAA995566</line>
+				<line>0x20000000</line>
+				<line>0x30020001</line>
+				<line>runBuildStartAddress</line>
+				<line>0x30008001</line>
+				<line>0x0000000F</line>
+				<line>0x20000000</line>
+				<line>0x20000000</line>
+			</Command>
+			<Command id = "currentBuild">
+				<line>RDBC</line>
+				<line>0x20168038</line>
+				<line>0x00000000</line>
+			</Command>
+			<Command id = "pollRegion">
+				<line>RDBF</line>
+                <line>0x40160006</line>
+        		<line>0x00000000</line>
+        		<line>0x10100000</line>
+        		<line>0x40164000</line>
+        		<line>flashConfigAddress</line>
+        		<line>0x4016296C</line>
+        		<line>0x00000010</line>
+        		<line>0x10100000</line>
+        		<line>0x91060000</line>
+        		<line>0x51078050</line>
+        		<line>0x20168036</line>
+        		<line>0x00000000</line>
+			</Command>
+			<Command id = "eraseBuild">
+        		<line>ERAS</line> 
+        		<line>0x10100000</line>
+        		<line>0x40160217</line>
+        		<line>0x00000080</line>
+        		<line>0x10100000</line>
+        		<line>0x40160006</line>
+        		<line>0x00000000</line>
+        		<line>0x10100000</line>
+        		<line>0x40164000</line>
+        		<line>sectorAddress</line>
+        		<line>0x401620DC</line>
+        		<line>0x00000000</line>
+        		<line>0x40160305</line>
+        		<line>0x00000001</line>
+        		<line>0x10200000</line>
+        		<line>0x90160000</line>
+        		<line>0x50178070</line>
+        		<line>0x20168034</line>
+        		<line>0x00000000</line>
+			</Command>
+			<Command id = "status">
+        		<line>STRD</line> 
+        		<line>0x10100000</line>
+        		<line>0x40160305</line>
+        		<line>0x00000001</line>
+        		<line>0x10200000</line>
+        		<line>0x90160000</line>
+        		<line>0x50178070</line>
+        		<line>0x20168035</line>
+        		<line>0x00000000</line>
+			</Command>
+			<Command id = "loadFile">
+        		<line>LOAD</line>
+                <line>0x40160217</line>
+                <line>0x00000080</line>
+                <line>0x10100000</line>
+                <line>0x40160006</line>
+                <line>0x00000000</line>
+                <line>0x10100000</line>
+                <line>0x40160401</line>
+                <line>0x000002C2</line>
+                <line>0x10100000</line>
+                <line>0x40160006</line>
+                <line>0x00000000</line>
+                <line>0x10100000</line>
+                <line>0x40164000</line>
+                <line>downloadAddress</line>
+                <line>0x48062834</line>
+                <line>FILE</line>
+                <line>0x40160305</line>
+                <line>0x00000001</line>
+                <line>0x10100000</line>
+                <line>0x90160000</line>
+                <line>0x50178070</line>
+                <line>0x20168032</line>
+                <line>0x00000000</line>
+			</Command>
+		</Commands>
+		<RunAdresses>
+			<runBuildStartAddress id="region 0" isGoldenRegion="true" hex="0x00000000"/>
+			<runBuildStartAddress id="region 1" isGoldenRegion="false" hex="0x00008000"/>
+			<runBuildStartAddress id="region 2" isGoldenRegion="false" hex="0x00010000"/>
+			<runBuildStartAddress id="region 3" isGoldenRegion="false" hex="0x00018000"/>
+			<runBuildStartAddress id="region 4" isGoldenRegion="false" hex="0x00020000"/>
+			<runBuildStartAddress id="region 5" isGoldenRegion="false" hex="0x00028000"/>
+			<runBuildStartAddress id="region 6" isGoldenRegion="false" hex="0x00030000"/>
+			<runBuildStartAddress id="region 7" isGoldenRegion="false" hex="0x00038000"/>
+		</RunAdresses>
+		<FlashAddresses>
+			<flashConfigAddress id = "region 0" hex = "0x000ffff4"/>
+			<flashConfigAddress id = "region 1" hex = "0x100ffff4"/>
+			<flashConfigAddress id = "region 2" hex = "0x200ffff4"/>
+			<flashConfigAddress id = "region 3" hex = "0x300ffff4"/>
+			<flashConfigAddress id = "region 4" hex = "0x400ffff4"/>
+			<flashConfigAddress id = "region 5" hex = "0x500ffff4"/>
+			<flashConfigAddress id = "region 6" hex = "0x600ffff4"/>
+			<flashConfigAddress id = "region 7" hex = "0x700ffff4"/>
+		</FlashAddresses>
+		<SectorAdresses>
+			<sectorAddress id = "region 0" hex = "0x00000000"/>
+			<sectorAddress id = "region 1" hex = "0x10000000"/>
+			<sectorAddress id = "region 2" hex = "0x20000000"/>
+			<sectorAddress id = "region 3" hex = "0x30000000"/>
+			<sectorAddress id = "region 4" hex = "0x40000000"/>
+			<sectorAddress id = "region 5" hex = "0x50000000"/>
+			<sectorAddress id = "region 6" hex = "0x60000000"/>
+			<sectorAddress id = "region 7" hex = "0x70000000"/>
+		</SectorAdresses>
+		<DownloadAddresses>
+			<downloadAddress id = "region 0" hex = "0x00000004"/>
+			<downloadAddress id = "region 1" hex = "0x10000004"/>
+			<downloadAddress id = "region 2" hex = "0x20000004"/>
+			<downloadAddress id = "region 3" hex = "0x30000004"/>
+			<downloadAddress id = "region 4" hex = "0x40000004"/>
+			<downloadAddress id = "region 5" hex = "0x50000004"/>
+			<downloadAddress id = "region 6" hex = "0x60000004"/>
+			<downloadAddress id = "region 7" hex = "0x70000004"/>
+		</DownloadAddresses>
+	</ProgramFPGACommands>
+</FPGATool>

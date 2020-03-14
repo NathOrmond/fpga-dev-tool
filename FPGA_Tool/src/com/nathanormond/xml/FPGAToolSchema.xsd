@@ -1,0 +1,225 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FPGATool">
+    <xs:annotation>
+      <xs:documentation>DEFAULT XML LOAD OUT FOR FPGA TOOL *EDIT FOR PROJECT*</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ToolConfig">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:short" name="OutputAreaWidth"/>
+              <xs:element type="xs:short" name="OutputAreaHeight"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FPGAConfig">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="IPAddress"/>
+              <xs:element type="xs:int" name="FPGAPort"/>
+              <xs:element type="xs:short" name="MyPort"/>
+              <xs:element type="xs:byte" name="NumFlashSlots"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PacketReaderOffsets">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullOutputRange">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="Start"/>
+                    <xs:element type="xs:short" name="End"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SignificantOffsets">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="PacketHeader"/>
+                    <xs:element type="xs:byte" name="PacketSequenceNum"/>
+                    <xs:element type="xs:byte" name="Mezananine2BiteFlags"/>
+                    <xs:element type="xs:short" name="BiteMode"/>
+                    <xs:element type="xs:short" name="ChanABiteRes"/>
+                    <xs:element type="xs:short" name="ChanBBiteRes"/>
+                    <xs:element type="xs:short" name="ChanCBiteRes"/>
+                    <xs:element type="xs:short" name="ChanDBiteRes"/>
+                    <xs:element type="xs:short" name="Spare1"/>
+                    <xs:element type="xs:short" name="Spare2"/>
+                    <xs:element type="xs:short" name="Spare3"/>
+                    <xs:element type="xs:short" name="Spare4"/>
+                    <xs:element type="xs:short" name="Spare5"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Voltages">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="Input5v"/>
+                    <xs:element type="xs:byte" name="Input3v3"/>
+                    <xs:element type="xs:byte" name="Input1v5"/>
+                    <xs:element type="xs:byte" name="Input1v2"/>
+                    <xs:element type="xs:byte" name="Input1v8GTX"/>
+                    <xs:element type="xs:byte" name="Input1v0GTX"/>
+                    <xs:element type="xs:byte" name="Input1v2GTX"/>
+                    <xs:element type="xs:byte" name="Input1_0vCORE"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Temperatures">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:short" name="THER"/>
+                    <xs:element type="xs:short" name="CoreT0"/>
+                    <xs:element type="xs:short" name="LTMT1"/>
+                    <xs:element type="xs:short" name="PECT2"/>
+                    <xs:element type="xs:short" name="TMAX"/>
+                    <xs:element type="xs:short" name="TMIN"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MCACommands">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="line" maxOccurs="unbounded" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Default Transaction ID some network methods may use custom incrementing TID</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="StartCommands">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="line" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="StopCommands">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="line" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProgramFPGACommands">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="line" maxOccurs="unbounded" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Commands">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="line" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RunAdresses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="runBuildStartAddress" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="id" use="optional"/>
+                            <xs:attribute type="xs:string" name="isGoldenRegion" use="optional"/>
+                            <xs:attribute type="xs:string" name="hex" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="FlashAddresses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="flashConfigAddress" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="id" use="optional"/>
+                            <xs:attribute type="xs:string" name="hex" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SectorAdresses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="sectorAddress" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="id" use="optional"/>
+                            <xs:attribute type="xs:string" name="hex" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DownloadAddresses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="downloadAddress" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="id" use="optional"/>
+                            <xs:attribute type="xs:string" name="hex" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
